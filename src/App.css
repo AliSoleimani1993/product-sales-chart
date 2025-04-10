@@ -1,61 +1,24 @@
-.App {
-  text-align: center;
-  font-family: sans-serif;
-  padding: 20px;
-  background-color: #f9f9f9;
-  min-height: 100vh;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
 }
 
 h1 {
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.product-form {
-  margin-bottom: 30px;
-}
-
-.product-form input {
-  padding: 8px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 200px;
-}
-
-.product-form button {
-  padding: 8px 12px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.product-form button:hover {
-  background-color: #0056b3;
-}
-
-.buttons {
-  margin-bottom: 20px;
-}
-
-.buttons button {
-  padding: 8px 12px;
-  margin: 0 5px;
-  border: none;
-  background-color: #28a745;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.buttons button:hover {
-  background-color: #218838;
-}
-
-.chart-container {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  color: #2c3e50;
   margin-top: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.chart-wrapper {
+  margin-top: 40px;
 }

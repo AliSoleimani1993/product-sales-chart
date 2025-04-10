@@ -1,75 +1,37 @@
-import React, { useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
-import "./App.css";
+import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import './App.css';
+
+const data = [
+  { name: 'Jan', sales: 4000 },
+  { name: 'Feb', sales: 3000 },
+  { name: 'Mar', sales: 5000 },
+  { name: 'Apr', sales: 4780 },
+  { name: 'May', sales: 5890 },
+  { name: 'Jun', sales: 4390 },
+  { name: 'Jul', sales: 6490 },
+  { name: 'Aug', sales: 5490 },
+  { name: 'Sep', sales: 6000 },
+  { name: 'Oct', sales: 7000 },
+  { name: 'Nov', sales: 8000 },
+  { name: 'Dec', sales: 9000 }
+];
 
 function App() {
-  const [products, setProducts] = useState([]);
-  const [name, setName] = useState("");
-  const [sales, setSales] = useState("");
-  const [language, setLanguage] = useState("en");
-
-  const translations = {
-    en: {
-      title: "Product Sales Chart",
-      productName: "Product Name",
-      salesCount: "Units Sold",
-      add: "Add Product",
-      switchToSpanish: "Switch to Spanish",
-    },
-    es: {
-      title: "Gráfico de Ventas de Productos",
-      productName: "Nombre del Producto",
-      salesCount: "Unidades Vendidas",
-      add: "Agregar Producto",
-      switchToSpanish: "Cambiar a Inglés",
-    },
-  };
-
-  const t = translations[language];
-
-  const handleAddProduct = () => {
-    if (name && sales) {
-      setProducts([...products, { name, sales: parseInt(sales) }]);
-      setName("");
-      setSales("");
-    }
-  };
-
-  const toggleLanguage = () => {
-    setLanguage(language === "en" ? "es" : "en");
-  };
-
   return (
-    <div className="App">
-      <h1>{t.title}</h1>
-      <div className="product-form">
-        <input
-          type="text"
-          placeholder={t.productName}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder={t.salesCount}
-          value={sales}
-          onChange={(e) => setSales(e.target.value)}
-        />
-        <button onClick={handleAddProduct}>{t.add}</button>
-      </div>
-
-      <div className="buttons">
-        <button onClick={toggleLanguage}>{t.switchToSpanish}</button>
-      </div>
-
-      <div className="chart-container">
-        <BarChart width={600} height={300} data={products}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Bar dataKey="sales" fill="#8884d8" />
-        </BarChart>
+    <div className="container">
+      <h1>Product Sales Chart</h1>
+      <div className="chart-wrapper">
+        <ResponsiveContainer width="100%" height={400}>
+          <BarChart data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="sales" fill="#2ecc71" />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
     </div>
   );
